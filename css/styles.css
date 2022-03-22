@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/* font 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+body { font-family: 'Do Hyeon', sans-serif; }
+
+
+/* pc 화면 */
+h1 {
+    margin: 50px;
+    margin-bottom: 30px;
+    font-size: 50px;
+    font-style: italic;
+}
+footer { margin: 50px; }
+
+
+/* moblie 화면 */
+@media (max-width: 992px) {
+    h1 { font-size: 38px; }
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 419px) {
+    h1 { font-size: xx-large; }
+}
