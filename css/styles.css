@@ -25,6 +25,14 @@ footer { margin: 50px; }
     background-clip: content-box;
     background-color: indigo;
 }
+#bottom_clothes {
+    width: 350px;
+    height: 350px;
+
+    padding: 12px;
+    background-clip: content-box;
+    background-color: indigo;
+}
 
 
 /* moblie 화면 */
