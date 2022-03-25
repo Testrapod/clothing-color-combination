@@ -40,7 +40,7 @@
                     <div class="col-5">
                         <div class="row">
                             <div class="col-9 clothes-input">
-                                <select id="select_top_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
+                                <select id="select_top_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id);">
                                     <option value="color">Color</option>
                                     <option value="red" selected>Red</option>
                                     <option value="yellow">Yellow</option>
@@ -48,14 +48,14 @@
                                     <option value="blue">Blue</option>
                                 </select>
                             </div>
-                            <div class="col-3 align-self-center clothes-input"><input type="color" id="top_color_picker" class="color-picker" value="#FF0000"></div>
+                            <div class="col-3 align-self-center clothes-input"><input type="color" id="top_color_picker" class="full-maker" value="#FF0000"></div>
                         </div>
                     </div>
                     <div class="col-1"></div>
                     <div class="col-5">
                         <div class="row">
                             <div class="col-9 clothes-input">
-                                <select id="select_bottom_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
+                                <select id="select_bottom_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id);">
                                     <option value="color">Color</option>
                                     <option value="red">Red</option>
                                     <option value="yellow" selected>Yellow</option>
@@ -63,7 +63,51 @@
                                     <option value="blue">Blue</option>
                                 </select>
                             </div>
-                            <div class="col-3 align-self-center clothes-input"><input type="color" id="bottom_color_picker" class="color-picker" value="#FFFF00"></div>
+                            <div class="col-3 align-self-center clothes-input"><input type="color" id="bottom_color_picker" class="full-maker" value="#FFFF00"></div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-11">
+                        <div id="card_div" class="row card">
+                            <div class="card-header">Add Clothes</div>
+                            <div class="card-body">
+                                <div class="card-item">Type of top</div>
+                                <div class="row card-item">
+                                    <div class="col-10 clothes-input">
+                                        <select id="add_select_top_type" class="form-select" aria-label="Default select example" onchange="typeSelect(this.id);">
+                                            <option value="default" selected>-</option>
+                                            <option value="short-sleeved">short-sleeved</option>
+                                            <option value="long-sleeved">long-sleeved</option>
+                                            <option value="shirt">shirt</option>
+                                            <option value="hoodie">hoodie</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 align-self-center clothes-input"><input type="color" id="add_top_color_picker" class="full-maker" value="#FFFFFF"></div>
+                                </div>
+                                <br/>
+                                
+                                <div class="card-item">Type of bottom</div>
+                                <div class="row card-item">
+                                    <div class="col-10 clothes-input">
+                                        <select id="add_select_bottom_type" class="form-select" aria-label="Default select example" onchange="typeSelect(this.id);">
+                                            <option value="default" selected>-</option>
+                                            <option value="short-pants">short pants</option>
+                                            <option value="long-pants">long pants</option>
+                                            <option value="short-skirt">short skirt</option>
+                                            <option value="long-skirt">long skirt</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 align-self-center clothes-input"><input type="color" id="add_bottom_color_picker" class="full-maker" value="#FFFFFF"></div>
+                                </div>
+                                <br/>
+
+                                <div class="row text-center card-item">
+                                    <button id="add_button" type="button" class="btn btn-outline-success">Add</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-1"></div>

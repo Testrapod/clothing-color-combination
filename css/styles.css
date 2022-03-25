@@ -5,6 +5,18 @@
 body { font-family: 'Do Hyeon', sans-serif; }
 
 
+/* 시스템 태그 속성 변경 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* bootstrap 코드 */
+.btn:focus { box-shadow: none; }
+
+
 /* pc 화면 */
 h1 {
     margin: 50px;
@@ -15,9 +27,8 @@ h1 {
 footer { margin: 50px; }
 
 .img-part {}
-.control-part {
-    padding-top: 50px;
-}
+.control-part { padding-top: 50px; }
+#card_div { margin-top: 30px; }
 
 .clothes-img {
     width: 300px;
@@ -33,8 +44,12 @@ footer { margin: 50px; }
 .clothes-input {
     padding: 3px;
 }
+.card-item {
+    margin-left: 3px;
+    margin-right: 3px;
+}
 
-.color-picker {
+.full-maker {
     vertical-align: middle;
     width: 100%;
 }

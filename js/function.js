@@ -23,4 +23,8 @@ function colorSelect(id) {
     }
 }
 
+function typeSelect(id) {
+    var selectId = $("#" + id);
+    // console.log(selectId.val());
+}
 /* test function */
