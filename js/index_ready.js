@@ -12,7 +12,7 @@ $(document).ready(function () {
         var color = clothes_color[1];
 
         var tagContent =
-            '<tr>' +
+            '<tr onclick="getClothes(this);">' +
                 '<td scope="row"><input type="checkbox" name="deleteList"></td>' +
                 '<td scope="row">' + clothes +'</td>' +
                 '<td scope="row">' + color + '</td>' +
@@ -65,7 +65,7 @@ $(document).ready(function () {
             var color = clothes_color[1];
 
             var tagContent =
-                '<tr>' +
+                '<tr onclick="getClothes(this);">' +
                     '<td scope="row"><input type="checkbox" name="deleteList"></td>' +
                     '<td scope="row">' + clothes +'</td>' +
                     '<td scope="row">' + color + '</td>' +

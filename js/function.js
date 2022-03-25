@@ -23,6 +23,23 @@ function colorSelect(id) {
     }
 }
 
+function getClothes(target) {
+    var tr = $(target);
+    var td = tr.children();
+
+    var clothes = td.eq(1).text();
+    var color = td.eq(2).text();
+
+    if(clothes == "short-sleeved" || clothes == "long-sleeved" || clothes == "shirt" || clothes == "hoodie") {
+        // 상의인 경우
+        $("#top_clothes").css("background-color", color);
+    }
+    else if(clothes == "short-pants" || clothes == "long-pants" || clothes == "short-skirt" || clothes == "long-skirt") {
+        // 하의인 경우
+        $("#bottom_clothes").css("background-color", color);
+    }
+}
+
 function typeSelect(id) {
     var selectId = $("#" + id);
     // console.log(selectId.val());
