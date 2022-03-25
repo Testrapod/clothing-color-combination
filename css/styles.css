@@ -9,29 +9,34 @@ body { font-family: 'Do Hyeon', sans-serif; }
 h1 {
     margin: 50px;
     margin-bottom: 30px;
-    font-size: 50px;
+    font-size: 45px;
     font-style: italic;
 }
 footer { margin: 50px; }
 
-#clothes {
-    margin-top: 100px;
+.img-part {}
+.control-part {
+    padding-top: 50px;
 }
-#top_clothes {
-    width: 350px;
-    height: 350px;
 
-    padding: 12px;
+.clothes-img {
+    width: 300px;
+    height: auto;
+
+    /* padding: 12px; */
     background-clip: content-box;
-    background-color: indigo;
 }
-#bottom_clothes {
-    width: 350px;
-    height: 350px;
+.clothes-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.clothes-input {
+    padding: 3px;
+}
 
-    padding: 12px;
-    background-clip: content-box;
-    background-color: indigo;
+.color-picker {
+    vertical-align: middle;
+    width: 100%;
 }
 
 

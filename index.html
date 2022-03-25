@@ -19,41 +19,58 @@
     </header>
 
     <!-- clothes -->
-    <div id="clothes">
-        <div class="container">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-4">
-                    <div class="row justify-content-center"><img id="top_clothes" src="img/동해반려견똥똥해.png"/></div>
-                </div>
-                <div class="col-4 align-self-center">
-                    <select id="select_top_clothes" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
-                        <option selected>Please choose a color</option>
-                        <option value="red">Red</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
-                    </select>
-                </div>
-                <div class="col-2"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+
+            <div class="col-5 img-part">
+                <div class="row justify-content-center"><img id="top_clothes" class="clothes-img" style="background-color: red;" src="img/top_sample.png"/></div>
+                <div class="row justify-content-center"><img id="bottom_clothes" class="clothes-img" style="background-color: yellow;" src="img/bottom_sample.png"/></div>
             </div>
 
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-4">
-                    <div class="row justify-content-center"><img id="bottom_clothes" src="img/동해반려견똥똥해.png"/></div>
+            <div class="col-5 control-part">
+                <div class="row">
+                    <div class="col-5 text-center clothes-text"> Top Clothes </div>
+                    <div class="col-1"></div>
+                    <div class="col-5 text-center clothes-text"> Bottom Clothes </div>
+                    <div class="col-1"></div>
                 </div>
-                <div class="col-4 align-self-center">
-                    <select id="select_bottom_clothes" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
-                        <option selected>Please choose a color</option>
-                        <option value="red">Red</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
-                    </select>
+
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-9 clothes-input">
+                                <select id="select_top_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
+                                    <option value="color">Color</option>
+                                    <option value="red" selected>Red</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="green">Green</option>
+                                    <option value="blue">Blue</option>
+                                </select>
+                            </div>
+                            <div class="col-3 align-self-center clothes-input"><input type="color" id="top_color_picker" class="color-picker" value="#FF0000"></div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-9 clothes-input">
+                                <select id="select_bottom_color" class="form-select" aria-label="Default select example" onchange="colorSelect(this.id)">
+                                    <option value="color">Color</option>
+                                    <option value="red">Red</option>
+                                    <option value="yellow" selected>Yellow</option>
+                                    <option value="green">Green</option>
+                                    <option value="blue">Blue</option>
+                                </select>
+                            </div>
+                            <div class="col-3 align-self-center clothes-input"><input type="color" id="bottom_color_picker" class="color-picker" value="#FFFF00"></div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
                 </div>
-                <div class="col-2"></div>
             </div>
+
+            <div class="col-1"></div>
         </div>
     </div>
 
