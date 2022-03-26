@@ -15,6 +15,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* bootstrap 코드 */
 .btn:focus { box-shadow: none; }
+.form-check-input:focus { box-shadow: none; }
 
 
 /* pc 화면 */

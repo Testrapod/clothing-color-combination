@@ -1,21 +1,21 @@
 /* index.html document ready */
-var clothes_db = [];
+var clothes_db = {}; // prevention of duplication
 
 $(document).ready(function () {
     for(var i=0, len=localStorage.length; i<len; i++) {
-        clothes_db.push(localStorage.getItem(localStorage.key(i)));
+        clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
     }
 
-    $.each(clothes_db, function (i, item) {
-        var clothes_color = item.split('_');
+    $.each(clothes_db, function (key, value) {
+        var clothes_color = value.split('_');
         var clothes = clothes_color[0];
         var color = clothes_color[1];
 
         var tagContent =
             '<tr onclick="getClothes(this);">' +
-                '<td scope="row"><input type="checkbox" name="deleteList"></td>' +
-                '<td scope="row">' + clothes +'</td>' +
-                '<td scope="row">' + color + '</td>' +
+                '<td><input class="form-check-input" type="checkbox" name="deleteList"></td>' +
+                '<td>' + clothes +'</td>' +
+                '<td>' + color + '</td>' +
             '</tr>';
 
         $("#clothes_db_table>tbody").append(tagContent);
@@ -51,24 +51,27 @@ $(document).ready(function () {
         var bottomType = $("#add_select_bottom_type").val();
 
         if(topType != "default") {
-            localStorage.setItem(localStorage.length, topType + "_" + $("#add_top_color_picker").val());
-            clothes_db.push(topType + "_" + $("#add_top_color_picker").val());
+            var item = topType + "_" + $("#add_top_color_picker").val();
+            localStorage.setItem(item, item);
+            clothes_db[item] = localStorage.getItem(item);
         }
         if(bottomType != "default") {
-            localStorage.setItem(localStorage.length, bottomType + "_" + $("#add_bottom_color_picker").val());
-            clothes_db.push(bottomType + "_" + $("#add_bottom_color_picker").val());
+            var item = bottomType + "_" + $("#add_bottom_color_picker").val();
+            localStorage.setItem(item, item);
+            clothes_db[item] = localStorage.getItem(item);
         }
 
-        $.each(clothes_db, function (i, item) {
-            var clothes_color = item.split('_');
+        $("#clothes_db_table>tbody").empty();
+        $.each(clothes_db, function (key, value) {
+            var clothes_color = value.split('_');
             var clothes = clothes_color[0];
             var color = clothes_color[1];
 
             var tagContent =
                 '<tr onclick="getClothes(this);">' +
-                    '<td scope="row"><input type="checkbox" name="deleteList"></td>' +
-                    '<td scope="row">' + clothes +'</td>' +
-                    '<td scope="row">' + color + '</td>' +
+                    '<td><input class="form-check-input" type="checkbox" name="deleteList"></td>' +
+                    '<td>' + clothes +'</td>' +
+                    '<td>' + color + '</td>' +
                 '</tr>';
 
             $("#clothes_db_table>tbody").append(tagContent);
