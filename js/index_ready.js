@@ -46,7 +46,10 @@ function settingClothesDatas() {
 
 $(document).ready(function () {
     for(var i=0, len=localStorage.length; i<len; i++) {
-        clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(localStorage.key(i));
+        
+        if(key == value) clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
     }
     settingClothesDatas();
 
@@ -78,12 +81,12 @@ $(document).ready(function () {
         if(topType != "default") {
             var item = topType + "_" + $("#add_top_color_picker").val();
             localStorage.setItem(item, item);
-            clothes_db[item] = localStorage.getItem(item);
+            clothes_db[item] = item;
         }
         if(bottomType != "default") {
             var item = bottomType + "_" + $("#add_bottom_color_picker").val();
             localStorage.setItem(item, item);
-            clothes_db[item] = localStorage.getItem(item);
+            clothes_db[item] = item;
         }
 
         settingClothesDatas();
