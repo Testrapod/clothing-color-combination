@@ -35,6 +35,11 @@ function settingClothesDatas() {
     // check_list
     $("input:checkbox[name=check_list]").click(function() {
         $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
+        if($("input:checkbox[name=check_list]:checked").length == Object.keys(clothes_db).length) {
+            $("#all_check").prop("checked", true);
+        } else {
+            $("#all_check").prop("checked", false);
+        }
     });
 }
 
@@ -97,8 +102,8 @@ $(document).ready(function () {
         }
 	});
 
-    // delete_button
-    $("#delete_button").click(function() {
+    // real_delete_button
+    $("#real_delete_button").click(function() {
         var checkedList = $("input:checkbox[name=check_list]:checked");
 
         checkedList.each(function(item) {
@@ -112,7 +117,7 @@ $(document).ready(function () {
             localStorage.removeItem(clothes_color);
             delete clothes_db[clothes_color];
         });
-        
+
         settingClothesDatas();
     });
 });
