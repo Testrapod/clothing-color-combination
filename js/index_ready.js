@@ -23,6 +23,10 @@ function settingClothesDatas() {
         $("#clothes_db_table").show();
         $("#comb_button").show();
         $("#delete_button").show();
+    } else {
+        $("#clothes_db_table").hide();
+        $("#comb_button").hide();
+        $("#delete_button").hide();
     }
 
     $("#selected_clothes_num").text(0);
@@ -92,4 +96,23 @@ $(document).ready(function () {
             $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
         }
 	});
+
+    // delete_button
+    $("#delete_button").click(function() {
+        var checkedList = $("input:checkbox[name=check_list]:checked");
+
+        checkedList.each(function(item) {
+            var tr = checkedList.parent().parent().eq(item);
+            var td = tr.children();
+
+            var clothes = td.eq(1).text();
+            var color = td.eq(2).text();
+            var clothes_color = clothes + "_" + color;
+
+            localStorage.removeItem(clothes_color);
+            delete clothes_db[clothes_color];
+        });
+        
+        settingClothesDatas();
+    });
 });
