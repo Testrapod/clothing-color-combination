@@ -31,6 +31,7 @@ function settingClothesDatas() {
 
     $("#selected_clothes_num").text(0);
     $("#total_clothes_num").text(Object.keys(clothes_db).length);
+    $("#all_check").prop("checked", false);
 
     // check_list
     $("input:checkbox[name=check_list]").click(function() {
