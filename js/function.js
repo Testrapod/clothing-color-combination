@@ -48,8 +48,8 @@ function getClothes(target) {
     var tr = $(target);
     var td = tr.children();
 
-    var clothes = td.eq(1).text();
-    var color = td.eq(2).text();
+    var clothes = td.eq(1).text().trim();
+    var color = td.eq(2).text().trim();
 
     if(typeParser(clothes) == "top") {
         // 상의 type 변경 로직 필요

@@ -1,121 +1,19 @@
 /* index.html document ready */
-var clothes_db = {}; // prevention of duplication
-
-function settingClothesDatas() {
-    $("#clothes_db_table>tbody").empty();
-
-    $.each(clothes_db, function (key, value) {
-        var clothes_color = value.split('_');
-        var clothes = clothes_color[0];
-        var color = clothes_color[1];
-
-        var tagContent =
-            '<tr onclick="getClothes(this);">' +
-                '<td><input class="form-check-input" type="checkbox" name="check_list"></td>' +
-                '<td>' + clothes +'</td>' +
-                '<td class="d-flex justify-content-center">' +
-                    '<div class="sample-color align-self-center" style="background-color:' + color + ';"></div>' +
-                    ' &nbsp; ' +
-                    color +
-                '</td>' +
-            '</tr>';
-
-        $("#clothes_db_table>tbody").append(tagContent);
-    });
-
-    if($("#clothes_db_table>tbody tr").length > 0) {
-        $("#clothes_db_table").show();
-        $("#comb_button").show();
-        $("#delete_button").show();
-    } else {
-        $("#clothes_db_table").hide();
-        $("#comb_button").hide();
-        $("#delete_button").hide();
-    }
-
-    $("#selected_clothes_num").text(0);
-    $("#total_clothes_num").text(Object.keys(clothes_db).length);
-    $("#all_check").prop("checked", false);
-
-    // check_list
-    $("input:checkbox[name=check_list]").click(function() {
-        $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
-        if($("input:checkbox[name=check_list]:checked").length == Object.keys(clothes_db).length) {
-            $("#all_check").prop("checked", true);
-        } else {
-            $("#all_check").prop("checked", false);
-        }
-    });
-}
-
-function addClothesData(clothes_color) {
-    var check = true;
-    
-    $("#clothes_db_table>tbody tr").each(function() {
-        var tr = $(this);
-        var td = tr.children();
-
-        var tmp_clothes = td.eq(1).text();
-        var tmp_color = td.eq(2).text();
-        var tmp_clothes_color = tmp_clothes + "_" + tmp_color;
-    
-        if(tmp_clothes_color == clothes_color) {
-            check = false;
-            return false;
-        }
-    });
-
-    if(check) {
-        clothes_color = clothes_color.split('_');
-        var clothes = clothes_color[0];
-        var color = clothes_color[1];
-
-        var tagContent =
-            '<tr onclick="getClothes(this);">' +
-                '<td><input class="form-check-input" type="checkbox" name="check_list"></td>' +
-                '<td>' + clothes +'</td>' +
-                '<td class="d-flex justify-content-center">' +
-                    '<div class="sample-color align-self-center" style="background-color:' + color + ';"></div>' +
-                    ' &nbsp; ' +
-                    color +
-                '</td>' +
-            '</tr>';
-
-        $("#clothes_db_table>tbody").append(tagContent);
-
-        if($("#clothes_db_table>tbody tr").length > 0) {
-            $("#clothes_db_table").show();
-            $("#comb_button").show();
-            $("#delete_button").show();
-        } else {
-            $("#clothes_db_table").hide();
-            $("#comb_button").hide();
-            $("#delete_button").hide();
-        }
-
-        $("#total_clothes_num").text(Object.keys(clothes_db).length);
-        $("#all_check").prop("checked", false);
-
-        // check_list
-        $("input:checkbox[name=check_list]").click(function() {
-            $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
-            if($("input:checkbox[name=check_list]:checked").length == Object.keys(clothes_db).length) {
-                $("#all_check").prop("checked", true);
-            } else {
-                $("#all_check").prop("checked", false);
-            }
-        });
-    }
-}
-
 $(document).ready(function () {
     for(var i=0, len=localStorage.length; i<len; i++) {
         var key = localStorage.key(i);
         var value = localStorage.getItem(localStorage.key(i));
 
-        if(key == value) clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+        if(key == value) {
+            var clothes_color = value.split("_");
+            var clothes = clothes_color[0];
+
+            if(typeParser(clothes) == "top") top_clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+            else if(typeParser(clothes) == "bottom") bottom_clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
+        }
     }
-    settingClothesDatas();
+    settingTopClothesDatas();
+    settingBottomClothesDatas();
 
 
     // color_picker
@@ -146,51 +44,75 @@ $(document).ready(function () {
             var item = topType + "_" + $("#add_top_color_picker").val();
 
             localStorage.setItem(item, item);
-            clothes_db[item] = item;
+            top_clothes_db[item] = item;
 
-            addClothesData(item);
+            addTopClothesData(item);
         }
         if(bottomType != "default") {
             var item = bottomType + "_" + $("#add_bottom_color_picker").val();
 
             localStorage.setItem(item, item);
-            clothes_db[item] = item;
+            bottom_clothes_db[item] = item;
 
-            addClothesData(item);
+            addBottomClothesData(item);
         }
     });
 
 
-    // all_check
-    $("#all_check").click(function() {
-        var checked = $("#all_check").is(":checked");
+    // top_all_check
+    $("#top_all_check").click(function() {
+        var checked = $("#top_all_check").is(":checked");
 		if(checked) {
-            $("input:checkbox").prop("checked", true);
-            $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
+            $("input:checkbox[name=top_check_list]").prop("checked", true);
+            $("#top_selected_clothes_num").text($("input:checkbox[name=top_check_list]:checked").length);
         }
         else {
-            $("input:checkbox").prop("checked", false);
-            $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
+            $("input:checkbox[name=top_check_list]").prop("checked", false);
+            $("#top_selected_clothes_num").text($("input:checkbox[name=top_check_list]:checked").length);
+        }
+	});
+
+    // bottom_all_check
+    $("#bottom_all_check").click(function() {
+        var checked = $("#bottom_all_check").is(":checked");
+		if(checked) {
+            $("input:checkbox[name=bottom_check_list]").prop("checked", true);
+            $("#bottom_selected_clothes_num").text($("input:checkbox[name=bottom_check_list]:checked").length);
+        }
+        else {
+            $("input:checkbox[name=bottom_check_list]").prop("checked", false);
+            $("#bottom_selected_clothes_num").text($("input:checkbox[name=bottom_check_list]:checked").length);
         }
 	});
 
     // comb_button
     $("#comb_button").click(function() {
-        var checkedList = $("input:checkbox[name=check_list]:checked");
+        var topCheckedList = $("input:checkbox[name=top_check_list]:checked");
+        var bottomCheckedList = $("input:checkbox[name=bottom_check_list]:checked");
 
         var tops = [];
         var bottoms = [];
 
-        checkedList.each(function(item) {
-            var tr = checkedList.parent().parent().eq(item);
+        topCheckedList.each(function(item) {
+            var tr = topCheckedList.parent().parent().eq(item);
             var td = tr.children();
 
-            var clothes = td.eq(1).text();
-            var color = td.eq(2).text();
+            var clothes = td.eq(1).text().trim();
+            var color = td.eq(2).text().trim();
             var clothes_color = clothes + "_" + color;
 
-            if(typeParser(clothes) == "top") tops.push(clothes_color);
-            else if(typeParser(clothes) == "bottom") bottoms.push(clothes_color);
+            tops.push(clothes_color);
+        });
+
+        bottomCheckedList.each(function(item) {
+            var tr = bottomCheckedList.parent().parent().eq(item);
+            var td = tr.children();
+
+            var clothes = td.eq(1).text().trim();
+            var color = td.eq(2).text().trim();
+            var clothes_color = clothes + "_" + color;
+
+            bottoms.push(clothes_color);
         });
 
         if(tops.length != 0 && bottoms.length != 0) {
@@ -206,20 +128,34 @@ $(document).ready(function () {
 
     // real_delete_button
     $("#real_delete_button").click(function() {
-        var checkedList = $("input:checkbox[name=check_list]:checked");
+        var topCheckedList = $("input:checkbox[name=top_check_list]:checked");
+        var bottomCheckedList = $("input:checkbox[name=bottom_check_list]:checked");
 
-        checkedList.each(function(item) {
-            var tr = checkedList.parent().parent().eq(item);
+        topCheckedList.each(function(item) {
+            var tr = topCheckedList.parent().parent().eq(item);
             var td = tr.children();
 
-            var clothes = td.eq(1).text();
-            var color = td.eq(2).text();
+            var clothes = td.eq(1).text().trim();
+            var color = td.eq(2).text().trim();
             var clothes_color = clothes + "_" + color;
 
             localStorage.removeItem(clothes_color);
-            delete clothes_db[clothes_color];
+            delete top_clothes_db[clothes_color];
+        });
+        
+        bottomCheckedList.each(function(item) {
+            var tr = bottomCheckedList.parent().parent().eq(item);
+            var td = tr.children();
+
+            var clothes = td.eq(1).text().trim();
+            var color = td.eq(2).text().trim();
+            var clothes_color = clothes + "_" + color;
+
+            localStorage.removeItem(clothes_color);
+            delete bottom_clothes_db[clothes_color];
         });
 
-        settingClothesDatas();
+        settingTopClothesDatas();
+        settingBottomClothesDatas();
     });
 });
