@@ -53,7 +53,7 @@ function addClothesData(clothes_color) {
 
         var tmp_clothes = td.eq(1).text();
         var tmp_color = td.eq(2).text();
-        var tmp_clothes_color = tmp_clothes+"_"+tmp_color;
+        var tmp_clothes_color = tmp_clothes + "_" + tmp_color;
     
         if(tmp_clothes_color == clothes_color) {
             check = false;
@@ -165,6 +165,36 @@ $(document).ready(function () {
             $("#selected_clothes_num").text($("input:checkbox[name=check_list]:checked").length);
         }
 	});
+
+    // comb_button
+    $("#comb_button").click(function() {
+        var checkedList = $("input:checkbox[name=check_list]:checked");
+
+        var tops = [];
+        var bottoms = [];
+
+        checkedList.each(function(item) {
+            var tr = checkedList.parent().parent().eq(item);
+            var td = tr.children();
+
+            var clothes = td.eq(1).text();
+            var color = td.eq(2).text();
+            var clothes_color = clothes + "_" + color;
+
+            if(typeParser(clothes) == "top") tops.push(clothes_color);
+            else if(typeParser(clothes) == "bottom") bottoms.push(clothes_color);
+        });
+
+        if(tops.length != 0 && bottoms.length != 0) {
+            var top_bottom = clothesRandomComb(tops, bottoms);
+            top_clothes = top_bottom[0];
+            bottom_clothes = top_bottom[1];
+            setTopAndBottom(top_clothes, bottom_clothes);
+        } else {
+            $("#alert_comb").show();
+            setTimeout(function() { $("#alert_comb").hide(); }, 2000);
+        }
+    });
 
     // real_delete_button
     $("#real_delete_button").click(function() {
