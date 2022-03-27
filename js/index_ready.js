@@ -13,7 +13,11 @@ function settingClothesDatas() {
             '<tr onclick="getClothes(this);">' +
                 '<td><input class="form-check-input" type="checkbox" name="check_list"></td>' +
                 '<td>' + clothes +'</td>' +
-                '<td>' + color + '</td>' +
+                '<td class="d-flex justify-content-center">' +
+                    '<div class="sample-color align-self-center" style="background-color:' + color + ';"></div>' +
+                    ' &nbsp; ' +
+                    color +
+                '</td>' +
             '</tr>';
 
         $("#clothes_db_table>tbody").append(tagContent);

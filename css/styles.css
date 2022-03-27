@@ -29,20 +29,7 @@ footer { margin: 50px; }
 
 .img-part {}
 .control-part { padding-top: 50px; }
-
 #card_div { margin-top: 30px; }
-#clothes_db_table {
-    margin-top: 30px;
-    display: none;
-}
-#comb_button {
-    display: none;
-    width: 100%;
-}
-#delete_button {
-    display: none;
-    width: 100%;
-}
 
 .clothes-img {
     width: 300px;
@@ -62,10 +49,27 @@ footer { margin: 50px; }
     margin-left: 3px;
     margin-right: 3px;
 }
-
 .full-maker {
     vertical-align: middle;
     width: 100%;
+}
+
+#clothes_db_table {
+    margin-top: 30px;
+    display: none;
+}
+#comb_button {
+    display: none;
+    width: 100%;
+}
+#delete_button {
+    display: none;
+    width: 100%;
+}
+.sample-color {
+    width: 14px;
+    height: 14px;
+    border: 1px black solid;
 }
 
 
