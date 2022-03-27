@@ -19,29 +19,19 @@ $(document).ready(function () {
     // color_picker
     $("#top_color_picker").change(function() {
         $("#top_clothes").css("background-color", $("#top_color_picker").val());
-        $("#select_top_color").val("color").prop("selected", true);
     });
     $("#bottom_color_picker").change(function() {
         $("#bottom_clothes").css("background-color", $("#bottom_color_picker").val());
-        $("#select_bottom_color").val("color").prop("selected", true);
-    });
-
-    // add_color_picker
-    $("#add_top_color_picker").change(function() {
-        $("#top_clothes").css("background-color", $("#add_top_color_picker").val());
-    });
-    $("#add_bottom_color_picker").change(function() {
-        $("#bottom_clothes").css("background-color", $("#add_bottom_color_picker").val());
     });
 
 
     // add_button
     $("#add_button").click(function() {
-        var topType = $("#add_select_top_type").val();
-        var bottomType = $("#add_select_bottom_type").val();
+        var topType = $("#select_top_type").val();
+        var bottomType = $("#select_bottom_type").val();
 
         if(topType != "default") {
-            var item = topType + "_" + $("#add_top_color_picker").val();
+            var item = topType + "_" + $("#top_color_picker").val();
 
             localStorage.setItem(item, item);
             top_clothes_db[item] = item;
@@ -49,7 +39,7 @@ $(document).ready(function () {
             addTopClothesData(item);
         }
         if(bottomType != "default") {
-            var item = bottomType + "_" + $("#add_bottom_color_picker").val();
+            var item = bottomType + "_" + $("#bottom_color_picker").val();
 
             localStorage.setItem(item, item);
             bottom_clothes_db[item] = item;
