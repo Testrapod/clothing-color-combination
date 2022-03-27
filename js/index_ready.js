@@ -131,6 +131,12 @@ $(document).ready(function () {
         var topCheckedList = $("input:checkbox[name=top_check_list]:checked");
         var bottomCheckedList = $("input:checkbox[name=bottom_check_list]:checked");
 
+        if(topCheckedList.length + bottomCheckedList.length == 0) {
+            $("#alert_delete_select").show();
+            setTimeout(function() { $("#alert_delete_select").hide(); }, 2000);
+            return;
+        }
+
         topCheckedList.each(function(item) {
             var tr = topCheckedList.parent().parent().eq(item);
             var td = tr.children();
@@ -157,6 +163,9 @@ $(document).ready(function () {
 
         settingTopClothesDatas();
         settingBottomClothesDatas();
+
+        $("#alert_delete_success").show();
+        setTimeout(function() { $("#alert_delete_success").hide(); }, 2000);
     });
 
 

@@ -71,7 +71,7 @@ footer { margin: 50px; }
 
 
 /* alert */
-#alert_comb {
+.custom-alert {
     position: fixed;
     bottom: 15px;
     right: 15px;
