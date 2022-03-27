@@ -118,74 +118,82 @@
         </div>
     </div>
 
-    <!-- dividing line -->
-    <div class="container"><hr></div>
-
     <!-- clothes DB -->
     <div class="container">
-        <h3 class="text-center">Your Closet</h3>
+        <div id="closet">
+            <hr> <!-- dividing line -->
+            <h3 class="text-center">Your Closet</h3>
 
-        <div class="row">
-            <div class="col-6 text-center clothes-text">Top Clothes</div>
-            <div class="col-6 text-center clothes-text">Bottom Clothes</div>
+            <div class="row">
+                <div class="col-6 text-center clothes-text">Top Clothes</div>
+                <div class="col-6 text-center clothes-text">Bottom Clothes</div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <table id="top_clothes_db_table" class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Clothes</th>
+                                <th scope="col">Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- clothes data -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><input id="top_all_check" class="form-check-input" type="checkbox"></td>
+                                <td colspan="2">
+                                    Selected: <span id="top_selected_clothes_num">0</span> &nbsp; &nbsp; &nbsp; / 
+                                    &nbsp; &nbsp; &nbsp; Total: <span id="top_total_clothes_num">0</span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <table id="bottom_clothes_db_table" class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Clothes</th>
+                                <th scope="col">Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- clothes data -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><input id="bottom_all_check" class="form-check-input" type="checkbox"></td>
+                                <td colspan="2">
+                                    Selected: <span id="bottom_selected_clothes_num">0</span> &nbsp; &nbsp; &nbsp; / 
+                                    &nbsp; &nbsp; &nbsp; Total: <span id="bottom_total_clothes_num">0</span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-3 text-center">
+                    <button id="comb_button" type="button" class="btn btn-outline-primary">Combination</button>
+                </div>
+                <div class="col-3 text-center">
+                    <button id="delete_button" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                </div>
+                <div class="col-3"></div>
+            </div>
         </div>
+        
         <div class="row">
-            <div class="col-6">
-                <table id="top_clothes_db_table" class="table table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Clothes</th>
-                            <th scope="col">Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- clothes data -->
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><input id="top_all_check" class="form-check-input" type="checkbox"></td>
-                            <td colspan="2">
-                                Selected: <span id="top_selected_clothes_num">0</span> &nbsp; &nbsp; &nbsp; / 
-                                &nbsp; &nbsp; &nbsp; Total: <span id="top_total_clothes_num">0</span>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <button id="closet_button" type="button" class="btn btn-outline-secondary">Open closet</button>
             </div>
-            <div class="col-6">
-                <table id="bottom_clothes_db_table" class="table table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Clothes</th>
-                            <th scope="col">Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- clothes data -->
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td><input id="bottom_all_check" class="form-check-input" type="checkbox"></td>
-                            <td colspan="2">
-                                Selected: <span id="bottom_selected_clothes_num">0</span> &nbsp; &nbsp; &nbsp; / 
-                                &nbsp; &nbsp; &nbsp; Total: <span id="bottom_total_clothes_num">0</span>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3"></div>
-            <div class="col-3 text-center">
-                <button id="comb_button" type="button" class="btn btn-outline-primary">Combination</button>
-            </div>
-            <div class="col-3 text-center">
-                <button id="delete_button" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
-            </div>
-            <div class="col-3"></div>
+            <div class="col-4"></div>
         </div>
     </div>
 

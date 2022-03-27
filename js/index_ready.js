@@ -158,4 +158,12 @@ $(document).ready(function () {
         settingTopClothesDatas();
         settingBottomClothesDatas();
     });
+
+
+    // closet_button
+    $("#closet_button").click(function() {
+        $("#closet").toggle();
+        if($("#closet_button").text() == "Open closet") $("#closet_button").text("Close closet");
+        else $("#closet_button").text("Open closet");
+    });
 });

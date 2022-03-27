@@ -59,17 +59,15 @@ footer { margin: 50px; }
     width: 100%;
 }
 
-#clothes_db_table {
-    margin-top: 30px;
-    display: none;
-}
-#comb_button { width: 100%; }
-#delete_button { width: 100%; }
+#closet { display: none; }
 .sample-color {
     width: 14px;
     height: 14px;
     border: 1px black solid;
 }
+#comb_button { width: 100%; }
+#delete_button { width: 100%; }
+#closet_button { margin: 20px; }
 
 
 /* alert */
