@@ -1,7 +1,14 @@
 /* algorithm function */
+function isEmpty(str){  
+    if(typeof str == "undefined" || str == null || str == "") return true;
+    else return false ;
+}
+
+
 function typeParser(clothes) {
     if(clothes == "short-sleeved" || clothes == "long-sleeved" || clothes == "shirt" || clothes == "hoodie") return "top";
     else if(clothes == "short-pants" || clothes == "long-pants" || clothes == "short-skirt" || clothes == "long-skirt") return "bottom";
+    return "nothing";
 }
 
 function colorParser(color) {
@@ -10,6 +17,16 @@ function colorParser(color) {
     else if(color == "yellow") return "#FFFF00";
     else if(color == "green") return "#008000";
     else if(color == "blue") return "#0000FF";
+}
+
+function checkColor(color) {
+    if(color.length != 7) return false;
+    if(color.indexOf('#') != 0) return false;
+
+    color = color.substring(1, color.length);
+    if (/^[a-fA-F0-9]+/.test(color)) return true;
+
+    return false;
 }
 
 
@@ -85,16 +102,4 @@ function clothesRandomComb(tops, bottoms) {
     var top = tops[Math.floor(Math.random() * tops.length)];
     var bottom = bottoms[Math.floor(Math.random() * bottoms.length)];
     return [top, bottom];
-}
-
-
-function downloadClothesData(fileName, fileContents) {
-    var element = document.createElement('a');
-
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileContents));
-    element.setAttribute('download', fileName);
-    document.body.appendChild(element);
-    element.click();
-
-    document.body.removeChild(element);
 }

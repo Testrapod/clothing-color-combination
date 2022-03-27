@@ -174,3 +174,57 @@ function addBottomClothesData(clothes_color) {
         });
     }
 }
+
+
+function uploadClothesData() {
+    var input = document.createElement("input");
+
+    input.type = "file";
+    input.accept = "text/plain";
+    input.onchange = function() {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {    
+            var lines = this.result.split("\n");
+
+            for(var i=0; i<lines.length; i++){
+                var clothes_color = lines[i].split('_');
+                var clothes = clothes_color[0].trim();
+                var color = clothes_color[1].trim();
+                clothes_color = lines[i];
+
+                if(isEmpty(clothes) || isEmpty(color)) continue;
+                if(!checkColor(color)) continue;
+
+                if(typeParser(clothes) == "top") {
+                    localStorage.setItem(clothes_color, clothes_color);
+                    top_clothes_db[clothes_color] = clothes_color;
+                }
+                else if(typeParser(clothes) == "bottom") {
+                    localStorage.setItem(clothes_color, clothes_color);
+                    bottom_clothes_db[clothes_color] = clothes_color;
+                }
+            }
+
+            settingTopClothesData();
+            settingBottomClothesData();
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
+function downloadClothesData() {
+    var fileContents = "";
+    $.each(top_clothes_db, function (key, value) { fileContents += value + "\n" });
+    $.each(bottom_clothes_db, function (key, value) { fileContents += value + "\n" });
+
+    var a = document.createElement('a');
+
+    a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileContents));
+    a.setAttribute('download', "ccc_data.txt");
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+}

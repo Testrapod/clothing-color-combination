@@ -169,18 +169,9 @@ $(document).ready(function () {
     });
 
 
-    // upload_button
-    $("#upload_button").click(function() {
-        
-    });
-
-    // download_button
-    $("#download_button").click(function() {
-        var fileContents = "";
-        $.each(top_clothes_db, function (key, value) { fileContents += value + "\n" });
-        $.each(bottom_clothes_db, function (key, value) { fileContents += value + "\n" });
-        downloadClothesData("ccc_data.txt", fileContents);
-    });
+    // upload_button && download_button
+    $("#upload_button").click(function() { uploadClothesData(); });
+    $("#download_button").click(function() { downloadClothesData(); });
 
 
     // closet_button
