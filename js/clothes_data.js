@@ -189,8 +189,8 @@ function uploadClothesData() {
 
             for(var i=0; i<lines.length; i++){
                 var clothes_color = lines[i].split('_');
-                var clothes = clothes_color[0].trim();
-                var color = clothes_color[1].trim();
+                var clothes = clothes_color[0];
+                var color = clothes_color[1];
                 clothes_color = lines[i];
 
                 if(isEmpty(clothes) || isEmpty(color)) continue;
