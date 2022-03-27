@@ -86,3 +86,15 @@ function clothesRandomComb(tops, bottoms) {
     var bottom = bottoms[Math.floor(Math.random() * bottoms.length)];
     return [top, bottom];
 }
+
+
+function downloadClothesData(fileName, fileContents) {
+    var element = document.createElement('a');
+
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fileContents));
+    element.setAttribute('download', fileName);
+    document.body.appendChild(element);
+    element.click();
+
+    document.body.removeChild(element);
+}

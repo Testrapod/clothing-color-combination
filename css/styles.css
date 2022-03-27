@@ -60,6 +60,18 @@ footer { margin: 50px; }
 }
 
 #closet { display: none; }
+#upload_button {
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    float: right;
+}
+#download_button {
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    float: right;
+}
 .sample-color {
     width: 14px;
     height: 14px;

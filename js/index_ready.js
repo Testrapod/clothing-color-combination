@@ -12,8 +12,8 @@ $(document).ready(function () {
             else if(typeParser(clothes) == "bottom") bottom_clothes_db[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
         }
     }
-    settingTopClothesDatas();
-    settingBottomClothesDatas();
+    settingTopClothesData();
+    settingBottomClothesData();
 
 
     // color_picker
@@ -161,11 +161,25 @@ $(document).ready(function () {
             delete bottom_clothes_db[clothes_color];
         });
 
-        settingTopClothesDatas();
-        settingBottomClothesDatas();
+        settingTopClothesData();
+        settingBottomClothesData();
 
         $("#alert_delete_success").show();
         setTimeout(function() { $("#alert_delete_success").hide(); }, 2000);
+    });
+
+
+    // upload_button
+    $("#upload_button").click(function() {
+        
+    });
+
+    // download_button
+    $("#download_button").click(function() {
+        var fileContents = "";
+        $.each(top_clothes_db, function (key, value) { fileContents += value + "\n" });
+        $.each(bottom_clothes_db, function (key, value) { fileContents += value + "\n" });
+        downloadClothesData("ccc_data.txt", fileContents);
     });
 
 

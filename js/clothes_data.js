@@ -1,7 +1,7 @@
 var top_clothes_db = {}; // prevention of duplication
 var bottom_clothes_db = {}; // prevention of duplication
 
-function settingTopClothesDatas() {
+function settingTopClothesData() {
     $("#top_clothes_db_table>tbody").empty();
 
     $.each(top_clothes_db, function (key, value) {
@@ -38,7 +38,7 @@ function settingTopClothesDatas() {
     });
 }
 
-function settingBottomClothesDatas() {
+function settingBottomClothesData() {
     $("#bottom_clothes_db_table>tbody").empty();
 
     $.each(bottom_clothes_db, function (key, value) {
