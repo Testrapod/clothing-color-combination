@@ -30,6 +30,8 @@ $(document).ready(function () {
         var topType = $("#select_top_type").val();
         var bottomType = $("#select_bottom_type").val();
 
+        var addCheck = false;
+
         if(topType != "default") {
             var item = topType + "_" + $("#top_color_picker").val();
 
@@ -37,6 +39,7 @@ $(document).ready(function () {
             top_clothes_db[item] = item;
 
             addTopClothesData(item);
+            addCheck = true;
         }
         if(bottomType != "default") {
             var item = bottomType + "_" + $("#bottom_color_picker").val();
@@ -45,6 +48,15 @@ $(document).ready(function () {
             bottom_clothes_db[item] = item;
 
             addBottomClothesData(item);
+            addCheck = true;
+        }
+
+        if(addCheck) {
+            $("#alert_add_success").show();
+            setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
+        } else {
+            $("#alert_add_select").show();
+            setTimeout(function() { $("#alert_add_select").fadeOut(); }, 2000);
         }
     });
 
