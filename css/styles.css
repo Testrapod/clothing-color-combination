@@ -112,6 +112,11 @@ footer { margin: 50px; }
 
     #upload_button { margin-top: 10px; }
     #download_button { margin-top: 10px; }
+
+    .custom-alert {
+        right: 5%;
+        width: 90%;
+    }
 }
 @media (max-width: 419px) {
     h1 { font-size: xx-large; }
