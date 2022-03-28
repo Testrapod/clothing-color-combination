@@ -80,8 +80,8 @@ $(document).ready(function () {
         var topCheckedList = $("input:checkbox[name=top_check_list]:checked");
         var bottomCheckedList = $("input:checkbox[name=bottom_check_list]:checked");
 
-        var tops = [];
-        var bottoms = [];
+        tops_for_comb = [];
+        bottoms_for_comb = [];
 
         topCheckedList.each(function(item) {
             var tr = topCheckedList.parent().parent().eq(item);
@@ -91,7 +91,7 @@ $(document).ready(function () {
             var color = td.eq(2).text().trim();
             var clothes_color = clothes + "_" + color;
 
-            tops.push(clothes_color);
+            tops_for_comb.push(clothes_color);
         });
 
         bottomCheckedList.each(function(item) {
@@ -102,19 +102,31 @@ $(document).ready(function () {
             var color = td.eq(2).text().trim();
             var clothes_color = clothes + "_" + color;
 
-            bottoms.push(clothes_color);
+            bottoms_for_comb.push(clothes_color);
         });
 
-        if(tops.length != 0 && bottoms.length != 0) {
-            var top_bottom = clothesRandomComb(tops, bottoms);
+        if(tops_for_comb.length != 0 && bottoms_for_comb.length != 0) {
+            var top_bottom = clothesRandomComb(tops_for_comb, bottoms_for_comb);
             top_clothes = top_bottom[0];
             bottom_clothes = top_bottom[1];
-            setTopAndBottom(top_clothes, bottom_clothes);
+
+            setCombTopAndBottom(top_clothes, bottom_clothes);
+            var combModal = new bootstrap.Modal(document.getElementById('combModal'));
+            combModal.show();
         } else {
             $("#alert_comb").show();
             setTimeout(function() { $("#alert_comb").fadeOut(); }, 2000);
         }
     });
+
+    // again_comb_button
+    $("#again_comb_button").click(function() {
+        var top_bottom = clothesRandomComb(tops_for_comb, bottoms_for_comb);
+        top_clothes = top_bottom[0];
+        bottom_clothes = top_bottom[1];
+
+        setCombTopAndBottom(top_clothes, bottom_clothes);
+    })
 
     // real_delete_button
     $("#real_delete_button").click(function() {

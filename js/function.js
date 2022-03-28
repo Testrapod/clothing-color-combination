@@ -62,14 +62,14 @@ function getClothes(target) {
     }
 }
 
-function setTopAndBottom(top_clothes, bottom_clothes) {
+function setCombTopAndBottom(top_clothes, bottom_clothes) {
     // 1. set top clothes
     top_clothes = top_clothes.split('_');
     var clothes = top_clothes[0];
     var color = top_clothes[1];
 
     // 상의 type 변경 로직 필요
-    $("#top_clothes").css("background-color", color);
+    $("#comb_top_clothes").css("background-color", color);
 
 
     // 2. set bottom clothes
@@ -78,7 +78,7 @@ function setTopAndBottom(top_clothes, bottom_clothes) {
     color = bottom_clothes[1];
 
     // 하의 type 변경 로직 필요
-    $("#bottom_clothes").css("background-color", color);
+    $("#comb_bottom_clothes").css("background-color", color);
 }
 
 

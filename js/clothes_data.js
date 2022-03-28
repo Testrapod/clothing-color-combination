@@ -1,6 +1,9 @@
 var top_clothes_db = {}; // prevention of duplication
 var bottom_clothes_db = {}; // prevention of duplication
 
+var tops_for_comb = [];
+var bottoms_for_comb = [];
+
 function settingTopClothesData() {
     $("#top_clothes_db_table>tbody").empty();
 
