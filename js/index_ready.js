@@ -112,7 +112,7 @@ $(document).ready(function () {
             setTopAndBottom(top_clothes, bottom_clothes);
         } else {
             $("#alert_comb").show();
-            setTimeout(function() { $("#alert_comb").hide(); }, 2000);
+            setTimeout(function() { $("#alert_comb").fadeOut(); }, 2000);
         }
     });
 
@@ -123,7 +123,7 @@ $(document).ready(function () {
 
         if(topCheckedList.length + bottomCheckedList.length == 0) {
             $("#alert_delete_select").show();
-            setTimeout(function() { $("#alert_delete_select").hide(); }, 2000);
+            setTimeout(function() { $("#alert_delete_select").fadeOut(); }, 2000);
             return;
         }
 
@@ -155,7 +155,7 @@ $(document).ready(function () {
         settingBottomClothesData();
 
         $("#alert_delete_success").show();
-        setTimeout(function() { $("#alert_delete_success").hide(); }, 2000);
+        setTimeout(function() { $("#alert_delete_success").fadeOut(); }, 2000);
     });
 
 
