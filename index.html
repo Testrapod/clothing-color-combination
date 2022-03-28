@@ -81,11 +81,8 @@
             <h3 class="text-center">Your Closet</h3>
 
             <div class="row">
-                <div class="col-6 text-center clothes-text">Top Clothes</div>
-                <div class="col-6 text-center clothes-text">Bottom Clothes</div>
-            </div>
-            <div class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-12">
+                    <div class="text-center clothes-text">Top Clothes</div>
                     <table id="top_clothes_db_table" class="table table-hover text-center">
                         <thead>
                             <tr>
@@ -108,7 +105,8 @@
                         </tfoot>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-12">
+                    <div class="text-center clothes-text">Bottom Clothes</div>
                     <table id="bottom_clothes_db_table" class="table table-hover text-center">
                         <thead>
                             <tr>
@@ -132,16 +130,17 @@
                     </table>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-3 text-center">
+                <div class="col-md-3"></div>
+                <div class="col-md-3 col text-center">
                     <button id="comb_button" type="button" class="btn btn-outline-primary">Combination</button>
                 </div>
-                <div class="col-3 text-center">
+                <div class="col-md-3 col text-center">
                     <button id="delete_button" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-2 align-self-center">
+                <div class="col-md-1"></div>
+                <div class="col-md-2 align-self-center">
                     <button id="download_button" type="button" class="btn btn-outline-dark btn-sm"><i class="bi bi-save"></i></button>
                     <button id="upload_button" type="button" class="btn btn-outline-dark btn-sm"><i class="bi bi-plus"></i></button>
                 </div>
@@ -149,11 +148,11 @@
         </div>
         
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 text-center">
+            <div class="col-md-4 col-3"></div>
+            <div class="col-md-4 col-6 text-center">
                 <button id="closet_button" type="button" class="btn btn-outline-secondary">Open closet</button>
             </div>
-            <div class="col-4"></div>
+            <div class="col-md-4 col-3"></div>
         </div>
     </div>
 
