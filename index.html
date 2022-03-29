@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -25,8 +44,8 @@
             <div class="col-md-1"></div>
 
             <div class="col-md-5 col-12 img-part">
-                <div class="row justify-content-center"><img id="top_clothes" class="clothes-img" style="background-color: red;" src="img/short-sleeved.png"/></div>
-                <div class="row justify-content-center"><img id="bottom_clothes" class="clothes-img" style="background-color: yellow;" src="img/short-pants.png"/></div>
+                <div class="row justify-content-center"><img id="top_clothes" class="clothes-img" style="background-color: #FF0000;" src="img/short-sleeved.png"/></div>
+                <div class="row justify-content-center"><img id="bottom_clothes" class="clothes-img" style="background-color: #FFFF00;" src="img/short-pants.png"/></div>
             </div>
 
             <div class="col-md-5 col-12 control-part align-self-center">
@@ -37,14 +56,13 @@
                         <div class="row card-item">
                             <div class="col-10 clothes-input">
                                 <select id="select_top_type" class="form-select" aria-label="Default select example" onchange="typeSelect(this.id);">
-                                    <option value="default" selected>-</option>
-                                    <option value="short-sleeved">short-sleeved</option>
+                                    <option value="short-sleeved" selected>short-sleeved</option>
                                     <option value="long-sleeved">long-sleeved</option>
                                     <option value="shirt">shirt</option>
                                     <option value="hoodie">hoodie</option>
                                 </select>
                             </div>
-                            <div class="col-2 align-self-center clothes-input"><input type="color" id="top_color_picker" class="full-maker" value="#FFFFFF"></div>
+                            <div class="col-2 align-self-center clothes-input"><input type="color" id="top_color_picker" class="full-maker" value="#FF0000"></div>
                         </div>
                         <br/>
                         
@@ -52,14 +70,13 @@
                         <div class="row card-item">
                             <div class="col-10 clothes-input">
                                 <select id="select_bottom_type" class="form-select" aria-label="Default select example" onchange="typeSelect(this.id);">
-                                    <option value="default" selected>-</option>
-                                    <option value="short-pants">short pants</option>
+                                    <option value="short-pants" selected>short pants</option>
                                     <option value="long-pants">long pants</option>
                                     <option value="short-skirt">short skirt</option>
                                     <option value="long-skirt">long skirt</option>
                                 </select>
                             </div>
-                            <div class="col-2 align-self-center clothes-input"><input type="color" id="bottom_color_picker" class="full-maker" value="#FFFFFF"></div>
+                            <div class="col-2 align-self-center clothes-input"><input type="color" id="bottom_color_picker" class="full-maker" value="#FFFF00"></div>
                         </div>
                         <br/>
 

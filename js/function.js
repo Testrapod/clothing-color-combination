@@ -34,14 +34,10 @@ function typeSelect(id) {
     var selectId = $("#" + id);
     // console.log(selectId.val());
 
-    if(id == "add_select_top_type") {
-        if(selectId.val() == "-") { return; }
-        // 상의 type 변경 로직 필요
-    }
-    else if(id == "add_select_bottom_type") {
-        if(selectId.val() == "-") { return; }
-        // 하의 type 변경 로직 필요
-    }
+    var imgUrl = "img/" + selectId.val() + '.png';
+
+    if(id == "select_top_type") $("#top_clothes").attr("src", imgUrl);
+    else if(id == "select_bottom_type") $("#bottom_clothes").attr("src", imgUrl);
 }
 
 
@@ -51,13 +47,14 @@ function getClothes(target) {
 
     var clothes = td.eq(1).text().trim();
     var color = td.eq(2).text().trim();
+    var imgUrl = "img/" + clothes + '.png';
 
     if(typeParser(clothes) == "top") {
-        // 상의 type 변경 로직 필요
+        $("#top_clothes").attr("src", imgUrl);
         $("#top_clothes").css("background-color", color);
     }
     else if(typeParser(clothes) == "bottom") {
-        // 하의 type 변경 로직 필요
+        $("#bottom_clothes").attr("src", imgUrl);
         $("#bottom_clothes").css("background-color", color);
     }
 }
@@ -67,8 +64,9 @@ function setCombTopAndBottom(top_clothes, bottom_clothes) {
     top_clothes = top_clothes.split('_');
     var clothes = top_clothes[0];
     var color = top_clothes[1];
+    var imgUrl = "img/" + clothes + '.png';
 
-    // 상의 type 변경 로직 필요
+    $("#comb_top_clothes").attr("src", imgUrl);
     $("#comb_top_clothes").css("background-color", color);
 
 
@@ -76,8 +74,9 @@ function setCombTopAndBottom(top_clothes, bottom_clothes) {
     bottom_clothes = bottom_clothes.split('_');
     clothes = bottom_clothes[0];
     color = bottom_clothes[1];
+    imgUrl = "img/" + clothes + '.png';
 
-    // 하의 type 변경 로직 필요
+    $("#comb_bottom_clothes").attr("src", imgUrl);
     $("#comb_bottom_clothes").css("background-color", color);
 }
 
