@@ -191,7 +191,13 @@ $(document).ready(function () {
     // closet_button
     $("#closet_button").click(function() {
         $("#closet").toggle();
-        if($("#closet_button").text() == "Open closet") $("#closet_button").text("Close closet");
-        else $("#closet_button").text("Open closet");
+        if($("#closet_button").text() == "Open closet") {
+            $("#closet_button").css("margin-top", "20px");
+            $("#closet_button").text("Close closet");
+        }
+        else {
+            $("#closet_button").css("margin-top", "0px");
+            $("#closet_button").text("Open closet");
+        }
     });
 });
