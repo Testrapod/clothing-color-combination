@@ -114,6 +114,8 @@ footer { margin: 50px; }
 /* moblie 화면 */
 @media (max-width: 992px) {
     h1 { font-size: 38px; }
+
+    .footer-text { font-size: small; }
 }
 @media (max-width: 767px) {
     #logo {
@@ -139,6 +141,8 @@ footer { margin: 50px; }
         right: 5%;
         width: 90%;
     }
+
+    .footer-text { font-size: x-small; }
 }
 @media (max-width: 419px) {
     #logo {
@@ -147,4 +151,6 @@ footer { margin: 50px; }
         width: 70%;
     }
     h1 { font-size: xx-large; }
+
+    .footer-text { font-size: xx-small; }
 }
