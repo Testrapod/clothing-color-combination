@@ -30,24 +30,23 @@ $(document).ready(function () {
         var topType = $("#select_top_type").val();
         var bottomType = $("#select_bottom_type").val();
 
+        var top_clothes = topType + "_" + $("#top_color_picker").val();
+        var bottom_clothes = bottomType + "_" + $("#bottom_color_picker").val();
+
         var addCheck = false;
 
-        if(topType != "default") {
-            var item = topType + "_" + $("#top_color_picker").val();
+        if(!(top_clothes in top_clothes_db)) {
+            localStorage.setItem(top_clothes, top_clothes);
+            top_clothes_db[top_clothes] = top_clothes;
 
-            localStorage.setItem(item, item);
-            top_clothes_db[item] = item;
-
-            addTopClothesData(item);
+            addTopClothesData(top_clothes);
             addCheck = true;
         }
-        if(bottomType != "default") {
-            var item = bottomType + "_" + $("#bottom_color_picker").val();
+        if(!(bottom_clothes in bottom_clothes_db)) {
+            localStorage.setItem(bottom_clothes, bottom_clothes);
+            bottom_clothes_db[bottom_clothes] = bottom_clothes;
 
-            localStorage.setItem(item, item);
-            bottom_clothes_db[item] = item;
-
-            addBottomClothesData(item);
+            addBottomClothesData(bottom_clothes);
             addCheck = true;
         }
 
@@ -55,8 +54,8 @@ $(document).ready(function () {
             $("#alert_add_success").show();
             setTimeout(function() { $("#alert_add_success").fadeOut(); }, 2000);
         } else {
-            $("#alert_add_select").show();
-            setTimeout(function() { $("#alert_add_select").fadeOut(); }, 2000);
+            $("#alert_add_fail").show();
+            setTimeout(function() { $("#alert_add_fail").fadeOut(); }, 2000);
         }
     });
 

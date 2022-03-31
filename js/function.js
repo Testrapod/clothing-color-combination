@@ -52,10 +52,16 @@ function getClothes(target) {
     if(typeParser(clothes) == "top") {
         $("#top_clothes").attr("src", imgUrl);
         $("#top_clothes").css("background-color", color);
+
+        $("#select_top_type").val(clothes).prop("selected", true);
+        $("#top_color_picker").val(color);
     }
     else if(typeParser(clothes) == "bottom") {
         $("#bottom_clothes").attr("src", imgUrl);
         $("#bottom_clothes").css("background-color", color);
+
+        $("#select_bottom_type").val(clothes).prop("selected", true);
+        $("#bottom_color_picker").val(color);
     }
 }
 
